@@ -1,113 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Subai Surfes Mobile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🛡️ Jardins de Escudo</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html {
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #0f0f0f;
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #loader {
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    canvas {
       width: 100%;
       height: 100%;
-      overflow: hidden;
-      font-family: sans-serif;
-      background: black;
-    }
-    canvas {
       display: block;
-      margin: auto;
-      background: linear-gradient(to top, #222, #444);
+      background-color: black;
     }
-    .menu-controle {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 99;
-    }
-    .btn {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-size: 20px;
-      box-shadow: 0 0 10px black;
-      cursor: pointer;
+
+    footer {
+      color: #888;
+      font-size: 14px;
+      text-align: center;
+      margin: 10px;
     }
   </style>
 </head>
 <body>
 
-<canvas id="game" width="480" height="640"></canvas>
+  <h1 style="color:white; margin-top:10px;">🛡️ Jardins de Escudo</h1>
 
-<div class="menu-controle">
-  <button class="btn" onclick="simularTecla('ArrowLeft')">⬅️</button>
-  <button class="btn" onclick="simularTecla('ArrowUp')">⬆️</button>
-  <button class="btn" onclick="simularTecla('ArrowDown')">⬇️</button>
-  <button class="btn" onclick="simularTecla('ArrowRight')">➡️</button>
-</div>
+  <div id="loader">Carregando jogo...</div>
+  <script src="jogo.js"></script>
+  <script>
+    const engine = new Engine();
 
-<script>
-  const canvas = document.getElementById('game');
-  const ctx = canvas.getContext('2d');
+    engine.setCanvas(document.createElement("canvas"));
+    document.body.appendChild(engine.canvas);
 
-  let player = { x: 210, y: 500, size: 40, color: 'red' };
-  let lanes = [90, 210, 330];
-  let currentLane = 1;
-  let jumping = false;
-  let jumpY = 0;
+    engine.startGame({
+      'wasm': 'jogo.wasm',
+      'pck': 'jogo.pck',
+      'canvasResizePolicy': 2,
+    }).then(() => {
+      document.getElementById("loader").style.display = "none";
+    }).catch(err => {
+      document.getElementById("loader").innerText = "Erro ao carregar o jogo: " + err;
+    });
+  </script>
 
-  function drawPlayer() {
-    ctx.fillStyle = player.color;
-    ctx.fillRect(player.x, player.y - jumpY, player.size, player.size);
-  }
-
-  function update() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawPlayer();
-    requestAnimationFrame(update);
-  }
-
-  function simularTecla(tecla) {
-    const evento = new KeyboardEvent('keydown', { key: tecla });
-    document.dispatchEvent(evento);
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === "ArrowLeft") {
-      currentLane = Math.max(0, currentLane - 1);
-      player.x = lanes[currentLane];
-    }
-    if (e.key === "ArrowRight") {
-      currentLane = Math.min(2, currentLane + 1);
-      player.x = lanes[currentLane];
-    }
-    if (e.key === "ArrowUp") {
-      if (!jumping) {
-        jumping = true;
-        let jumpCount = 0;
-        const jumpInterval = setInterval(() => {
-          jumpY = Math.sin(jumpCount / 10) * 80;
-          jumpCount++;
-          if (jumpCount > 30) {
-            clearInterval(jumpInterval);
-            jumping = false;
-            jumpY = 0;
-          }
-        }, 16);
-      }
-    }
-    if (e.key === "ArrowDown") {
-      player.color = 'yellow';
-      setTimeout(() => player.color = 'red', 300);
-    }
-  });
-
-  update();
-</script>
+  <footer>
+    Criado por você e seu irmão • Powered by Godot HTML5
+  </footer>
 
 </body>
 </html>
