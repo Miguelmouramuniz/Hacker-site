@@ -6,34 +6,94 @@
 <title>combinaBR store</title>
 <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Courier New', Courier, monospace; }
-    html, body { width:100%; height:100%; overflow:hidden; background:black; color:#00ff99; }
+    html, body { width:100%; height:100%; overflow-x:hidden; background:black; color:#00ff99; }
     canvas { display:block; position:absolute; top:0; left:0; z-index:-1; }
 
     .container {
         position: relative;
         width:100%;
-        height:100%;
+        min-height:100vh;
         display:flex;
         flex-direction:column;
-        justify-content:center;
         align-items:center;
         text-align:center;
-        pointer-events:none;
+        padding:50px 20px;
     }
 
     h1 {
         font-size:4em;
         color:#00ff99;
         font-weight:100;
-        margin-bottom:20px;
-        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99;
+        margin-bottom:10px;
+        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
     }
 
     p {
         font-size:1.5em;
         color:#00ff99;
         font-weight:100;
-        text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99, 0 0 15px #00ff99;
+        text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99;
+        margin-bottom:50px;
+    }
+
+    .produtos {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:30px;
+        width:100%;
+        max-width:1200px;
+    }
+
+    .produto {
+        background-color: rgba(0,255,153,0.05);
+        border: 2px solid #00ff99;
+        border-radius: 10px;
+        padding:20px;
+        width:200px;
+        opacity:0;
+        transform: translateY(50px);
+        animation: entrar 1s forwards;
+    }
+
+    .produto img {
+        width:100%;
+        border-radius:8px;
+        margin-bottom:15px;
+    }
+
+    .produto h2 {
+        font-size:1.2em;
+        margin-bottom:10px;
+        color:#00ff99;
+    }
+
+    .produto p {
+        font-size:0.9em;
+        margin-bottom:10px;
+        color:#00ff99;
+    }
+
+    .produto button {
+        padding:8px 15px;
+        border:none;
+        background-color:#00ff99;
+        color:black;
+        font-weight:bold;
+        cursor:pointer;
+        border-radius:5px;
+        transition: 0.3s;
+    }
+
+    .produto button:hover {
+        background-color:#00cc66;
+    }
+
+    @keyframes entrar {
+        to {
+            opacity:1;
+            transform: translateY(0);
+        }
     }
 </style>
 </head>
@@ -44,6 +104,51 @@
 <div class="container">
     <h1>combinaBR store</h1>
     <p>Não passamos primeiro, somos confiáveis</p>
+
+    <div class="produtos">
+        <div class="produto" style="animation-delay:0.1s">
+            <img src="https://via.placeholder.com/200x200.png?text=Esok+Escola+90m" alt="Esok Escola 90m">
+            <h2>Esok Escola 90m</h2>
+            <p>Quantidade: 35</p>
+            <button>Comprar</button>
+        </div>
+        <div class="produto" style="animation-delay:0.3s">
+            <img src="https://via.placeholder.com/200x200.png?text=Esok+Escola+150m" alt="Esok Escola 150m">
+            <h2>Esok Escola 150m</h2>
+            <p>Quantidade: 40</p>
+            <button>Comprar</button>
+        </div>
+        <div class="produto" style="animation-delay:0.5s">
+            <img src="https://via.placeholder.com/200x200.png?text=Esok+Escola+30m" alt="Esok Escola 30m">
+            <h2>Esok Escola 30m</h2>
+            <p>Quantidade: 20</p>
+            <button>Comprar</button>
+        </div>
+        <div class="produto" style="animation-delay:0.7s">
+            <img src="https://via.placeholder.com/200x200.png?text=Los+Combinação+67m" alt="Los Combinação 67m">
+            <h2>Los Combinação 67m</h2>
+            <p>Quantidade: 20</p>
+            <button>Comprar</button>
+        </div>
+        <div class="produto" style="animation-delay:0.9s">
+            <img src="https://via.placeholder.com/200x200.png?text=Los+Combinação+15m" alt="Los Combinação 15m">
+            <h2>Los Combinação 15m</h2>
+            <p>Preço: 13,50</p>
+            <button>Comprar</button>
+        </div>
+        <div class="produto" style="animation-delay:1.1s">
+            <img src="https://via.placeholder.com/200x200.png?text=Six+Sevem+45m" alt="Six Sevem 45m">
+            <h2>Six Sevem 45m</h2>
+            <p>Quantidade: 20</p>
+            <button>Comprar</button>
+        </div>
+        <div class="produto" style="animation-delay:1.3s">
+            <img src="https://via.placeholder.com/200x200.png?text=Chili+Chili+400m" alt="Chili Chili 400m">
+            <h2>Chili Chili 400m</h2>
+            <p>Preço: 60</p>
+            <button>Comprar</button>
+        </div>
+    </div>
 </div>
 
 <script>
