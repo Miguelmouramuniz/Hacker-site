@@ -1,83 +1,86 @@
-<!--
-Arquivo: vip-roblox.html — Davi Store
-
-Instruções:
-1. Salve este conteúdo como vip-roblox.html
-2. Envie o arquivo para a pasta pública do seu site (ex: public_html, www ou raiz)
-3. Acesse: https://davistore.com/vip-roblox
--->
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Redirecionando para o servidor VIP — Davi Store</title>
-
-  <!-- Redirecionamento automático -->
-  <meta http-equiv="refresh" content="0; url=https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Davi Store</title>
   <style>
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #0b0b0b;
-      color: #eee;
+    :root{
+      --btn-bg:#0b84ff;
+      --btn-bg-hover:#0666d6;
+      --btn-color:#fff;
+      --btn-radius:16px;
+      --btn-padding-vertical:28px;
+      --btn-padding-horizontal:56px;
+      --font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    .card {
-      max-width: 520px;
-      padding: 24px;
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
-      text-align: center;
+    html,body{
+      height:100%;
+      margin:0;
+      background:#ffffff;
+      font-family:var(--font-family);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      background: #14aaf5;
-      color: white;
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      box-sizing:border-box;
     }
-    small { opacity: .7; }
-  </style>
+    .box{
+      text-align:center;
+      width:100%;
+      max-width:720px;
+    }
+    h1{
+      margin:0 0 20px 0;
+      font-size:20px;
+      color:#111;
+      font-weight:700;
+    }
+    .btn{
+      display:inline-block;
+      background:var(--btn-bg);
+      color:var(--btn-color);
+      text-decoration:none;
+      border:none;
+      border-radius:var(--btn-radius);
+      padding:var(--btn-padding-vertical) var(--btn-padding-horizontal);
+      font-size:22px;
+      font-weight:800;
+      box-shadow:0 10px 30px rgba(11,132,255,0.18);
+      transition:transform .12s ease, background .12s ease, box-shadow .12s ease;
+      cursor:pointer;
+    }
+    .btn:active{ transform:translateY(1px) scale(.998); }
+    .btn:hover{ background:var(--btn-bg-hover); box-shadow:0 14px 40px rgba(6,102,214,0.18); }
+    .small{
+      margin-top:18px;
+      color:#666;
+      font-size:13px;
+    }
 
-  <script>
-    (function(){
-      var target = 'https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server';
-      try {
-        window.location.replace(target);
-      } catch(e) {
-        console.error(e);
-      }
-    })();
-  </script>
+    /* mobile friendly: botão ocupa largura em telas pequenas */
+    @media (max-width:480px){
+      .btn{ width:100%; padding-left:20px; padding-right:20px; box-sizing:border-box; font-size:20px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Redirecionando para o servidor VIP do Roblox…</h1>
-    <p>Se a página não redirecionar automaticamente, clique no botão abaixo.</p>
-    <p><a class="button" href="https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server">Ir para o servidor VIP</a></p>
-    <p><small>Arquivo gerado automaticamente para Davi Store.</small></p>
-  </div>
+  <div class="wrap">
+    <div class="box" role="main" aria-labelledby="title">
+      <h1 id="title">Entrar na loja</h1>
 
-  <noscript>
-    <style>
-      body { background: #fff; color: #000; }
-      .card { background: #f8f8f8; color: #111; }
-    </style>
-    <div class="card">
-      <h2>JavaScript está desativado</h2>
-      <p>Clique no link abaixo para acessar o servidor:</p>
-      <p><a class="button" href="https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server">Ir para o servidor VIP</a></p>
+      <!-- botão grande que abre o link em nova aba -->
+      <a class="btn" href="https://www.roblox.com/share?code=b19434f52f514b43aff7b2acef423310&type=Server" target="_blank" rel="noopener noreferrer">
+        Entrar na loja
+      </a>
+
+      <div class="small">Abre em nova aba — link oficial do Roblox.</div>
     </div>
-  </noscript>
+  </div>
 </body>
 </html>
