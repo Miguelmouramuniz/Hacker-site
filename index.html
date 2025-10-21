@@ -1,398 +1,83 @@
-<!DOCTYPE html>
+<!--
+Arquivo: vip-roblox.html — Davi Store
+
+Instruções:
+1. Salve este conteúdo como vip-roblox.html
+2. Envie o arquivo para a pasta pública do seu site (ex: public_html, www ou raiz)
+3. Acesse: https://davistore.com/vip-roblox
+-->
+
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Davi Store — Brainrot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirecionando para o servidor VIP — Davi Store</title>
 
-  <!-- Fonte Anton -->
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <!-- Redirecionamento automático -->
+  <meta http-equiv="refresh" content="0; url=https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server">
 
   <style>
-    :root{
-      --azul-bebe:#b8eaff;
-      --fundo:#050308;
-      --card-bg: rgba(255,255,255,0.03);
-      --neon: rgba(184,234,255,0.14);
-      --verde-badge: #18c976;
-      --max-width:1200px;
-      --glass: rgba(255,255,255,0.04);
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #0b0b0b;
+      color: #eee;
     }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: 'Anton', sans-serif;
-      background: linear-gradient(180deg,#040306 0%, #080815 60%);
-      color: #fff;
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    .card {
+      max-width: 520px;
+      padding: 24px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+      text-align: center;
     }
-
-    /* fundo de estrelas */
-    .fundo-espaco{
-      position:fixed;inset:0;
-      z-index:-2;overflow:hidden;
-      background: radial-gradient(circle at 10% 10%, rgba(32,10,60,0.6), transparent 15%),
-                  radial-gradient(circle at 90% 90%, rgba(5,10,30,0.6), transparent 20%),
-                  #000;
+    a.button {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      background: #14aaf5;
+      color: white;
     }
-    .estrela{
-      position:absolute;width:2px;height:2px;border-radius:50%;background:rgba(255,255,255,0.9);
-      animation: moverEstrela linear infinite;
-      opacity:0.9;
-      box-shadow:0 0 6px rgba(255,255,255,0.25);
-    }
-    @keyframes moverEstrela{
-      0%{transform:translateY(-10vh);opacity:0.9}
-      100%{transform:translateY(110vh);opacity:0}
-    }
-
-    /* container */
-    .container{
-      max-width:var(--max-width);margin:0 auto;padding:18px;
-    }
-
-    /* topo / header banner grande */
-    .topbar{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px; width:100%;
-      margin:10px auto 18px;
-    }
-
-    .logo-wrap{
-      display:flex;align-items:center;gap:12px;
-    }
-
-    .logo-box{
-      width:64px;height:64px;border-radius:12px;
-      background:linear-gradient(135deg,#071025, #07193a);
-      border:3px solid var(--azul-bebe);
-      box-shadow:0 0 18px rgba(184,234,255,0.08), inset 0 1px 0 rgba(255,255,255,0.02);
-      display:flex;align-items:center;justify-content:center;
-      font-size:18px;color:var(--azul-bebe);font-weight:700;
-    }
-
-    .site-title{
-      text-align:left;
-      line-height:1;
-    }
-    .site-title h1{font-size:28px;color:var(--azul-bebe);text-shadow:0 0 18px rgba(184,234,255,0.12)}
-    .site-title p{font-family:Arial, sans-serif;font-size:13px;color:rgba(255,255,255,0.72);margin-top:4px}
-
-    /* banner grande centralizado com contorno */
-    header.banner{
-      width:90%;max-width:var(--max-width);
-      margin: 6px auto 18px;
-      background: rgba(0,0,0,0.55);
-      border: 3px solid var(--azul-bebe);
-      border-radius:14px;
-      padding:34px 22px;
-      box-shadow:0 0 28px rgba(184,234,255,0.06);
-      text-align:center;
-    }
-    header.banner h2{font-size:44px;color:var(--azul-bebe);letter-spacing:1px}
-    header.banner p{font-family:Arial, sans-serif;color:rgba(255,255,255,0.75);margin-top:8px}
-
-    /* busca */
-    .busca{
-      width:100%;max-width:720px;margin:14px auto 22px;display:flex;gap:10px;
-    }
-    .busca input{
-      flex:1;padding:14px 16px;border-radius:40px;border:1px solid rgba(255,255,255,0.06);
-      background:rgba(255,255,255,0.02);color:#fff;font-family:Arial, sans-serif;font-size:14px;
-      box-shadow:inset 0 0 12px rgba(0,0,0,0.6);
-    }
-
-    /* carrinho flutuante (icone + contador) */
-    #cartBtn{
-      position:fixed;top:18px;right:18px;z-index:1200;
-      background:var(--azul-bebe);border:none;padding:10px 14px;border-radius:999px;
-      display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,0.6);
-      font-family: Arial, sans-serif;
-    }
-    #cartBtn .icon{font-size:18px}
-    #cartBtn .counter{
-      background:rgba(0,0,0,0.9);color:#fff;padding:6px 8px;border-radius:999px;font-weight:800;font-size:13px;
-    }
-
-    /* grade produtos */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;padding:12px;margin-bottom:40px}
-    .card{
-      background:var(--card-bg);border-radius:12px;padding:0;overflow:hidden;border:1px solid var(--neon);
-      box-shadow:0 6px 18px rgba(0,0,0,0.5);
-      display:flex;flex-direction:column;position:relative;
-    }
-
-    .badge-top{
-      position:absolute;left:12px;top:12px;background:var(--verde-badge);color:#002b16;padding:6px 10px;border-radius:8px;font-family:Arial, sans-serif;font-weight:700;font-size:12px;
-      display:inline-flex;align-items:center;gap:8px;z-index:8;
-    }
-
-    .card .imgwrap{
-      height:150px;background:linear-gradient(90deg,#07142b, #071034);display:flex;align-items:center;justify-content:center;position:relative;
-    }
-    /* placeholder imagem com overlay Davi Store */
-    .card img{width:100%;height:100%;object-fit:cover;display:block}
-    .watermark{
-      position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,0.45);padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);
-      color:var(--azul-bebe);font-weight:700;font-size:12px;font-family:Arial, sans-serif;
-    }
-
-    .card .content{padding:14px 12px 16px;display:flex;flex-direction:column;gap:8px}
-    .card h3{font-size:16px;color:var(--azul-bebe);font-family:Arial, sans-serif}
-    .prices{display:flex;align-items:center;gap:10px}
-    .old-price{text-decoration:line-through;color:rgba(255,255,255,0.35);font-size:13px;font-family:Arial, sans-serif}
-    .price{font-size:18px;color:#fff;font-weight:800;font-family:Arial, sans-serif}
-    .discount{margin-left:auto;background:rgba(184,234,255,0.06);color:var(--azul-bebe);padding:6px 8px;border-radius:8px;font-weight:700;font-family:Arial, sans-serif;font-size:13px}
-
-    .card .actions{display:flex;gap:8px;margin-top:6px}
-    .btn-buy{flex:1;background:linear-gradient(180deg,var(--azul-bebe), #9fdfff);border:none;padding:10px;border-radius:8px;font-weight:800;cursor:pointer}
-    .btn-fave{width:48px;border-radius:8px;border:1px solid var(--azul-bebe);background:transparent;color:var(--azul-bebe);cursor:pointer}
-
-    /* social floating (right) */
-    .socials{position:fixed;right:14px;bottom:120px;display:flex;flex-direction:column;gap:12px;z-index:1000}
-    .socials a{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,#0c1a2b,#081224);border:3px solid var(--azul-bebe);box-shadow:0 6px 20px rgba(0,0,0,0.5);color:var(--azul-bebe);text-decoration:none;font-size:22px}
-
-    /* toast feedback */
-    .toast{
-      position:fixed;left:50%;transform:translateX(-50%);bottom:26px;background:rgba(0,0,0,0.75);padding:12px 18px;border-radius:12px;border:1px solid rgba(184,234,255,0.08);
-      box-shadow:0 10px 30px rgba(0,0,0,0.6);z-index:1300;font-family:Arial, sans-serif;color:#fff;display:none;
-    }
-
-    /* responsivo */
-    @media (max-width:720px){
-      header.banner h2{font-size:28px}
-      .busca{padding:0 12px}
-      .topbar{flex-direction:column;align-items:flex-start;gap:8px}
-      #cartBtn{right:12px;top:12px}
-      .socials{right:10px;bottom:84px}
-      .logo-box{width:56px;height:56px}
-    }
+    small { opacity: .7; }
   </style>
-</head>
-<body>
-
-  <div class="fundo-espaco" id="fundo"></div>
-
-  <!-- botão carrinho (icone + contador) -->
-  <button id="cartBtn" aria-label="Ver carrinho">
-    <span class="icon">🛒</span>
-    <span id="cartCounter" class="counter">0</span>
-    <span style="font-family:Arial, sans-serif;font-size:13px;color:#001">/200</span>
-  </button>
-
-  <!-- floating socials -->
-  <div class="socials" aria-hidden="true">
-    <a href="#" title="Discord">💬</a>
-    <a href="#" title="WhatsApp">📞</a>
-    <a href="#" title="Instagram">📷</a>
-  </div>
-
-  <div class="container">
-
-    <!-- topo com logo, busca, etc -->
-    <div class="topbar">
-      <div class="logo-wrap">
-        <div class="logo-box">DAVI</div>
-        <div class="site-title">
-          <h1>Davi Store</h1>
-          <p>Seu universo de escolhas • Entrega Automática</p>
-        </div>
-      </div>
-
-      <!-- busca -->
-      <div style="flex:1;display:flex;justify-content:flex-end;">
-        <div class="busca">
-          <input id="searchInput" placeholder="Buscar produto" aria-label="Buscar produto" />
-        </div>
-      </div>
-    </div>
-
-    <!-- banner central -->
-    <header class="banner" role="banner" aria-label="Banner principal">
-      <h2>Steal a Brainrot</h2>
-      <p>Contas Brainrot com entrega automática — todas no estilo Davi Store</p>
-    </header>
-
-    <!-- produtos -->
-    <section class="grid" id="grid">
-
-      <!-- card exemplo 1 -->
-      <article class="card" data-title="CONTA COM LOS TRALALERITOS (750K/SEC)" data-price="13.90">
-        <div class="imgwrap">
-          <!-- imagem de exemplo; substitua pela sua -->
-          <img src="https://via.placeholder.com/800x450/071034/ffffff?text=BRAINROT+1" alt="Brainrot 1">
-          <div class="watermark">Davi Store</div>
-          <div class="badge-top">ENTREGA AUTOMÁTICA</div>
-        </div>
-        <div class="content">
-          <h3>CONTA COM LOS TRALALERITOS (750K/SEC)</h3>
-          <div class="prices">
-            <div class="old-price">R$ 19,46</div>
-            <div class="price">R$ 13,90</div>
-            <div class="discount">-45%</div>
-          </div>
-          <div class="actions">
-            <button class="btn-buy comprar" aria-label="Comprar">Comprar agora</button>
-            <button class="btn-fave fave" aria-label="Favoritar">♡</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- card exemplo 2 -->
-      <article class="card" data-title="VACCA SATURN SATURNITA (250K/SEC)" data-price="11.90">
-        <div class="imgwrap">
-          <img src="https://via.placeholder.com/800x450/06334a/ffffff?text=BRAINROT+2" alt="Brainrot 2">
-          <div class="watermark">Davi Store</div>
-          <div class="badge-top">ENTREGA AUTOMÁTICA</div>
-        </div>
-        <div class="content">
-          <h3>VACCA SATURN SATURNITA (250K/SEC)</h3>
-          <div class="prices">
-            <div class="old-price">R$ 16,66</div>
-            <div class="price">R$ 11,90</div>
-            <div class="discount">-45%</div>
-          </div>
-          <div class="actions">
-            <button class="btn-buy comprar" aria-label="Comprar">Comprar agora</button>
-            <button class="btn-fave fave" aria-label="Favoritar">♡</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- card exemplo 3 -->
-      <article class="card" data-title="CONTA COM GRAIPUSS MEDUSSI (1M/SEC)" data-price="17.60">
-        <div class="imgwrap">
-          <img src="https://via.placeholder.com/800x450/4a0a44/ffffff?text=BRAINROT+3" alt="Brainrot 3">
-          <div class="watermark">Davi Store</div>
-          <div class="badge-top">ENTREGA AUTOMÁTICA</div>
-        </div>
-        <div class="content">
-          <h3>CONTA COM GRAIPUSS MEDUSSI (1M/SEC)</h3>
-          <div class="prices">
-            <div class="old-price">R$ 32,06</div>
-            <div class="price">R$ 17,60</div>
-            <div class="discount">-45%</div>
-          </div>
-          <div class="actions">
-            <button class="btn-buy comprar" aria-label="Comprar">Comprar agora</button>
-            <button class="btn-fave fave" aria-label="Favoritar">♡</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- card exemplo 4 -->
-      <article class="card" data-title="CONTA COM CHIMPANZINI SPID (900K/SEC)" data-price="16.90">
-        <div class="imgwrap">
-          <img src="https://via.placeholder.com/800x450/3d0910/ffffff?text=BRAINROT+4" alt="Brainrot 4">
-          <div class="watermark">Davi Store</div>
-          <div class="badge-top">ENTREGA AUTOMÁTICA</div>
-        </div>
-        <div class="content">
-          <h3>CONTA COM CHIMPANZINI SPID (900K/SEC)</h3>
-          <div class="prices">
-            <div class="old-price">R$ 23,66</div>
-            <div class="price">R$ 16,90</div>
-            <div class="discount">-28%</div>
-          </div>
-          <div class="actions">
-            <button class="btn-buy comprar" aria-label="Comprar">Comprar agora</button>
-            <button class="btn-fave fave" aria-label="Favoritar">♡</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Copie mais cards conforme precisar mantendo a estrutura -->
-    </section>
-
-  </div>
-
-  <!-- toast feedback -->
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-    // gerar estrelas aleatórias (visual)
-    const fundo = document.getElementById('fundo');
-    const numEstrelas = 80;
-    for(let i=0;i<numEstrelas;i++){
-      const s = document.createElement('div');
-      s.className='estrela';
-      s.style.left = Math.random()*100 + 'vw';
-      s.style.top = Math.random()*100 + 'vh';
-      s.style.width = (1 + Math.random()*3) + 'px';
-      s.style.height = s.style.width;
-      s.style.animationDuration = (6 + Math.random()*10) + 's';
-      s.style.animationDelay = Math.random()*6 + 's';
-      fundo.appendChild(s);
-    }
-
-    // CARRINHO: icone + contador (max 200)
-    const MAX_ITEMS = 200;
-    let cart = [];
-    const cartCounter = document.getElementById('cartCounter');
-    const toast = document.getElementById('toast');
-
-    function showToast(text, success=true){
-      toast.innerText = text;
-      toast.style.display = 'block';
-      toast.style.borderColor = success ? 'rgba(184,234,255,0.08)' : 'rgba(255,80,80,0.12)';
-      setTimeout(()=>{ toast.style.display = 'none'; }, 1800);
-    }
-
-    // adicionar evento comprar (seletor .comprar)
-    document.querySelectorAll('.comprar').forEach(btn => {
-      btn.addEventListener('click', (e)=>{
-        const card = e.target.closest('.card');
-        const title = card.getAttribute('data-title') || card.querySelector('h3').innerText;
-        const price = card.getAttribute('data-price') || card.querySelector('.price').innerText;
-        if (cart.length >= MAX_ITEMS){
-          showToast('Você atingiu o limite de 200 itens no carrinho!', false);
-          return;
-        }
-        cart.push({title,price});
-        cartCounter.innerText = cart.length;
-        // feedback no botão
-        const original = btn.innerText;
-        btn.innerText = '✅ Adicionado!';
-        btn.disabled = true;
-        setTimeout(()=>{ btn.innerText = original; btn.disabled = false; }, 900);
-        showToast(`${title} adicionado ao carrinho`);
-      });
-    });
-
-    // favoritos visuais
-    document.querySelectorAll('.fave').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        btn.classList.toggle('active');
-        if(btn.classList.contains('active')){ btn.innerText = '♥'; showToast('Favoritado!'); }
-        else { btn.innerText = '♡'; showToast('Removido dos favoritos'); }
-      });
-    });
-
-    // busca simples (filtrar cards por texto)
-    const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', (e)=>{
-      const q = e.target.value.toLowerCase().trim();
-      document.querySelectorAll('.card').forEach(card=>{
-        const t = (card.getAttribute('data-title') || card.querySelector('h3').innerText).toLowerCase();
-        card.style.display = t.includes(q) ? '' : 'none';
-      });
-    });
-
-    // clique no cart mostra resumo (alert simples) — pode customizar pra modal
-    document.getElementById('cartBtn').addEventListener('click', ()=>{
-      if(cart.length===0){ showToast('Seu carrinho está vazio'); return; }
-      // resumo rápido (limitado)
-      const lines = cart.slice(0,10).map((it,i)=>`${i+1}. ${it.title} — R$ ${it.price}`);
-      alert(`Itens no carrinho (${cart.length}):\n\n${lines.join('\n')}${cart.length>10?'\n\n(+ mais itens...)':''}`);
-    });
-
-    // acessibilidade: tecla / foca busca
-    window.addEventListener('keydown', (e)=>{
-      if(e.key === '/') { e.preventDefault(); searchInput.focus(); }
-    });
+    (function(){
+      var target = 'https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server';
+      try {
+        window.location.replace(target);
+      } catch(e) {
+        console.error(e);
+      }
+    })();
   </script>
+</head>
+<body>
+  <div class="card">
+    <h1>Redirecionando para o servidor VIP do Roblox…</h1>
+    <p>Se a página não redirecionar automaticamente, clique no botão abaixo.</p>
+    <p><a class="button" href="https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server">Ir para o servidor VIP</a></p>
+    <p><small>Arquivo gerado automaticamente para Davi Store.</small></p>
+  </div>
+
+  <noscript>
+    <style>
+      body { background: #fff; color: #000; }
+      .card { background: #f8f8f8; color: #111; }
+    </style>
+    <div class="card">
+      <h2>JavaScript está desativado</h2>
+      <p>Clique no link abaixo para acessar o servidor:</p>
+      <p><a class="button" href="https://www.roblox.com/share?code=c3fc6083a4909f4283237fa882c4160e&type=Server">Ir para o servidor VIP</a></p>
+    </div>
+  </noscript>
 </body>
-   </html>
+</html>
